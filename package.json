@@ -1,7 +1,6 @@
 {
   "name": "ping-pong",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,5 +11,14 @@
     "browserify": "^14.5.0",
     "gulp": "^3.9.1",
     "vinyl-source-stream": "^1.1.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mark11748/PreWork_JS.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mark11748/PreWork_JS/issues"
+  },
+  "homepage": "https://github.com/mark11748/PreWork_JS#readme",
+  "description": ""
 }
