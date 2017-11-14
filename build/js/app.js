@@ -18,11 +18,11 @@ Calculator.prototype.pingPong = function(goal) {
   }
   return output;
 };
-Calculator.prototype.add = function (num1,num2){ return num1+num2; };
-Calculator.prototype.sub = function (num1,num2){ return num1-num2; };
-Calculator.prototype.mul = function (num1,num2){ return num1*num2; };
-Calculator.prototype.div = function (num1,num2){ return num1/num2; };
-Calculator.prototype.mod = function (num1,num2){ return num1%num2; };
+Calculator.prototype.Add = function (num1=0,num2=0){ return (num1+num2); };
+Calculator.prototype.Sub = function (num1=0,num2=0){ return (num1-num2); };
+Calculator.prototype.Mul = function (num1=0,num2=0){ return (num1*num2); };
+Calculator.prototype.Div = function (num1=0,num2=1){ return (num1/num2); };
+Calculator.prototype.Mod = function (num1=0,num2=1){ return (num1%num2); };
 
 
 
@@ -32,19 +32,21 @@ exports.calculatorModule = Calculator;
 var Calculator = require('./../js/pingpong.js').calculatorModule;
 
 $(document).ready(function() {
-  $("form#calculator").submit(function(event){
+  $("#calculator").submit(function(event){
     event.preventDefault();
     var num1;
     var num2;
-    if ($("num1").val()==undefined){num1=0;}
-    else {num1=$("num1").val();}
-    if ($("num2").val()==undefined){num2=0;}
-    else {num2=$("num2").val();}
+    var myCalculator = new Calculator("hot pink");
+    num1= parseInt($("#num1").val());
+    num2= parseInt($("#num2").val());
 
-    if ($("operator").val() == 1){$("#solution").prepend("<p>" + Calculator.add(num1,num2) + "</p>");}
-    if ($("operator").val() == 2){$("#solution").prepend("<p>" + Calculator.sub(num1,num2) + "</p>");}
-    if ($("operator").val() == 3){$("#solution").prepend("<p>" + Calculator.mul(num1,num2) + "</p>");}
-    if ($("operator").val() == 4){$("#solution").prepend("<p>" + Calculator.div(num1,num2).toFixed() + " R" + Calculator.mod(num1,num2) + "</p>");}
+    if ($("#operator").val() == 1){ $("#solution").append ("<p>" + myCalculator.Add(num1,num2) + "</p>"); }
+    if ($("#operator").val() == 2){ $("#solution").prepend("<p>" + myCalculator.Sub(num1,num2) + "</p>"); }
+    if ($("#operator").val() == 3){ $("#solution").prepend("<p>" + myCalculator.Mul(num1,num2) + "</p>"); }
+    if ($("#operator").val() == 4){
+      if (num2==0){$("#solution").prepend("ERR : Cannot divide by zero...");}
+      else{$("#solution").prepend("<p>" + myCalculator.Div(num1,num2).toFixed() + " R" + myCalculator.Mod(num1,num2) + "</p>");}
+    }
   });
 });
 

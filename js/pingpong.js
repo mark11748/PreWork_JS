@@ -17,11 +17,11 @@ Calculator.prototype.pingPong = function(goal) {
   }
   return output;
 };
-Calculator.prototype.add = function (num1,num2){ return num1+num2; };
-Calculator.prototype.sub = function (num1,num2){ return num1-num2; };
-Calculator.prototype.mul = function (num1,num2){ return num1*num2; };
-Calculator.prototype.div = function (num1,num2){ return num1/num2; };
-Calculator.prototype.mod = function (num1,num2){ return num1%num2; };
+Calculator.prototype.Add = function (num1=0,num2=0){ return (num1+num2); };
+Calculator.prototype.Sub = function (num1=0,num2=0){ return (num1-num2); };
+Calculator.prototype.Mul = function (num1=0,num2=0){ return (num1*num2); };
+Calculator.prototype.Div = function (num1=0,num2=1){ return (num1/num2); };
+Calculator.prototype.Mod = function (num1=0,num2=1){ return (num1%num2); };
 
 
 
