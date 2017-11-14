@@ -6,6 +6,10 @@ var utilities = require('gulp-util');
 var del = require('del');
 var gulp = require('gulp');
 
+var jshint = require('gulp-jshint'); //linter package/debugging tool
+
+
+
 gulp.task('myTask', function(){
   console.log('hello gulp');
 });
@@ -41,4 +45,10 @@ gulp.task("build", ['clean'], function(){
   } else {
     gulp.start('jsBrowserify');
   }
+});
+
+gulp.task('jshint', function(){
+  return gulp.src(['js/*.js'])
+  .pipe(jshint())
+  .pipe(jshint.reporter('default'));
 });

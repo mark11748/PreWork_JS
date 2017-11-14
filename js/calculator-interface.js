@@ -16,26 +16,3 @@ $(document).ready(function() {
     if ($("operator").val() == 4){$("#solution").prepend("<p>" + Calculator.div(num1,num2).toFixed() + " R" + Calculator.mod(num1,num2) + "</p>");}
   });
 });
-
-var Calculator = require('./../js/pingpong.js').calculatorModule;
-
-$(document).ready(function() {
-  $('#ping-pong-form').submit(function(event) {
-    event.preventDefault();
-    var goal = $('#goal').val();
-    var simpleCalculator = new Calculator("hot pink");
-    var output = simpleCalculator.pingPong(goal);
-    output.forEach(function(element) {
-      $('#solution').append("<li>" + element + "</li>");
-    });
-  });
-});
-
-$(document).ready(function(){
-  $('#signup').submit(function(event){
-    event.preventDefault();
-    var email = $('#email').val();
-    $('#signup').hide();
-    $('#solution').prepend('<p>Thank you, ' + email + ' has been added to our list!</p>');
-  });
-});

@@ -16,6 +16,13 @@ Calculator.prototype.pingPong = function(goal) {
     }
   }
   return output;
-}
+};
+Calculator.prototype.add = function (num1,num2){ return num1+num2; };
+Calculator.prototype.sub = function (num1,num2){ return num1-num2; };
+Calculator.prototype.mul = function (num1,num2){ return num1*num2; };
+Calculator.prototype.div = function (num1,num2){ return num1/num2; };
+Calculator.prototype.mod = function (num1,num2){ return num1%num2; };
+
+
 
 exports.calculatorModule = Calculator;
